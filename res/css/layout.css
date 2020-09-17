@@ -151,3 +151,16 @@ img {
 	border: solid 4px hsl(var(--hue-purple-text), 55%, 80%);
 	border-radius: 20px;
 }
+
+
+table.leaderboard {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	color: hsl(var(--hue-purple-text), 60%, 60%);
+}
+
+caption {
+	font-size: x-large;
+	font-weight: bold;
+}

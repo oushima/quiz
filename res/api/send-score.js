@@ -1,9 +1,8 @@
-export function sendScore (studentId, correctAnswers) {
+export function sendScore (studentId, correctAnswers, totalTimeSeconds) {
 	const titleElement = document.getElementById('title')
 
 	const errorMsg = '\nScore niet succesvol opgeslagen in de database.'
-	console.log('student ID:', studentId)
-	console.log('Correct answers: ', correctAnswers)
+
 	var xHttp = new XMLHttpRequest();
 	xHttp.onreadystatechange = function () { 
 		if (xHttp.readyState == XMLHttpRequest.DONE) { 
@@ -26,6 +25,7 @@ export function sendScore (studentId, correctAnswers) {
 	xHttp.send(JSON.stringify({
 		quizMaster: quizMasterStudentId, 
 		student: studentId, 
-		points: correctAnswers 
+		points: correctAnswers,
+		time: totalTimeSeconds
 	}))
 }

@@ -2,6 +2,7 @@
 import { questionnaire } from './questionnaire.js'
 import { requestStudent, setPlayerInformation } from '../api/find-student.js'
 import { sendScore } from '../api/send-score.js'
+import { loadLeaderboard } from '../api/leaderboard.js'
 
 // Shuffle JSON questionnaire (modern Fisher-Yates shuffle algorithm).
 const shuffle = array => {
@@ -238,12 +239,18 @@ const quizResult = () => {
 	totalTime = (endTime - startTime) / 1000
 	// If time is more than 60 seconds, make the word "minutes" and not "seconds".
 	let word = 'secondes'
-	if(totalTime > 60) {
-		word = 'minuten'
+	if (totalTime > 60) {
 		totalTime /= totalTime
+		if (totalTime > 60 && totalTime < 1.99) word = 'minuut'
+		if (totalTime >= 2) word = 'minuten'
+		if (totalTime > 60) return alert('Je hebt te lang over deze quiz gedaan.')
 	}
+	
+
+
 	titleElement.innerText = `${emote}\nJe hebt ${Array.from(score.correct).length} van de ${questionnaire.length} vragen goed beantwoord in een tijdsduur van ${totalTime.toFixed(2)} ${word} ${firstNameElement.value} ${lastNameElement.value}.`
-	return sendScore(studentNumber.value, correctAnswers.length)
+	loadLeaderboard()
+	return sendScore(studentNumber.value, Array.from(score.correct).length, totalTime)
 }
 
 const loadColors = () => {
