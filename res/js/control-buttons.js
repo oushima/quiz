@@ -249,8 +249,8 @@ const quizResult = () => {
 
 
 	titleElement.innerText = `${emote}\nJe hebt ${Array.from(score.correct).length} van de ${questionnaire.length} vragen goed beantwoord in een tijdsduur van ${totalTime.toFixed(2)} ${word} ${firstNameElement.value} ${lastNameElement.value}.`
-	loadLeaderboard()
-	return sendScore(studentNumber.value, Array.from(score.correct).length, totalTime)
+	sendScore(studentNumber.value, Array.from(score.correct).length, totalTime)
+	return loadLeaderboard()
 }
 
 const loadColors = () => {
