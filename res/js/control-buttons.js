@@ -224,6 +224,7 @@ const quizResult = () => {
 	nextButton.classList.add('hide')
 	playerElement.classList.add('hide')
 	mediaElement.classList.add('hide')
+	introductionElement.innerHTML = ''
 
 
 
