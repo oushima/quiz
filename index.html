@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Quiz Frontend Development</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+	<link rel='stylesheet' type='text/css' media='screen' href='./res/css/layout.css'>
+	<script src='./res/js/control-buttons.js' type="module"></script>
+</head>
+<body >
+	<div class="container">
+		<div id="introduction" class="text">👋<br>Welkom bij de quiz van Dennis Juman.<br>Student van Hogeschool Windesheim Flevoland.</div>
+		<div id="information" class="text"></div>
+		<div id="name-container" class="text">
+			<div class="text">Vul je studentnummer in om te beginnen:</div>
+			<input id="student-number" class="text name" type="text" placeholder="Studentnummer">
+			<input id="first-name" class="text name hide" type="text" placeholder="Voornaam" disabled>
+			<input id="last-name" class="text name hide" type="text" placeholder="Achternaam" disabled>
+		</div>
+		<div id="questionnaire-container" class="flex hide">
+			<div id="media" class="media"></div>
+			<div id="title" class="question"></div>
+			<div id="answer-btn-container" class="btn-grid"></div>
+		</div> 
+		<div class="btn-container">
+			<button id="start-btn" class="start-btn control-button">start</button>
+			<button id="stop-btn" class="stop-btn control-button hide">stop</button>
+			<button id="previous-btn" class="previous-btn control-button hide">vorige</button>
+			<button id="next-btn" class="next-btn control-button hide">volgende</button>
+		</div>
+		<div id="player" class="text player"></div>
+		<div id="quiz-progress" class="question"></div>
+	</div>
+</body>
+</html>
