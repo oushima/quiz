@@ -314,15 +314,6 @@ const loadWireframes = () => {
     }
   }
 
-  // Loop door te folder items HTMLMenuElement.
-  //   let html = '<div class="wireframe-images">'
-  //   for (let i = 1; i <= objProperty.items; i++) {
-  //     console.log(`${path}${objProperty.folderName}/(${i})${objProperty.extension}`)
-  //     html += `<img src="${path}${objProperty.folderName}/(${i})${objProperty.extension}" alt="${objProperty.folderName}_wireframe_${i}">`
-  //     document.body.style.display = 'inline'
-  //   }
-  //   document.body.innerHTML = html += '</div>'
-
   document.body.innerHTML = loadPath(path, folderNames.desktop)
   document.body.innerHTML += loadPath(path, folderNames.mobile)
 }
@@ -330,7 +321,7 @@ const loadWireframes = () => {
 /*  */
 const loadPath = (path, objProperty) => {
 // Loop door te folder items HTMLMenuElement.
-document.body.style.display = 'inline'
+  document.body.style.display = 'inline'
   let html = `<div class="wireframe-images"><h1>${objProperty.name}</h1>`
   for (let i = 1; i <= objProperty.items; i++) {
     // console.log(`${path}${objProperty.folderName}/(${i})${objProperty.extension}`)
