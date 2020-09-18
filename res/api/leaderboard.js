@@ -34,20 +34,12 @@ const createTable = students => {
 	let html = '<table id="leaderboard" class="leaderboard"> <tr> <th>Studentnummer</th> <th>Naam</th> <th>Score</th> <th>Datum</th> <th>Tijdstip</th> </tr><caption id="caption" class="caption">Leaderboard</caption>'
 	topScores.forEach(student => {
 
-		// Make dynamic time unit word.
-		let word = 'secondes'
-		if (student.time > 60) {
-			totalTime /= totalTime
-			if (student.time < 1.99) word = 'minuut'
-			if (student.time >= 2) word = 'minuten'
-		}
-
 		html += `<tr>
 				<td>${student.player.number}</td>
 				<td>${student.player.firstName} ${student.player.lastName}</td>
 				<td>${student.points}</td>
 				<td>${student.date}</td>
-				<td>${student.time} ${word}</td>
+				<td>${student.time} secondes</td>
 				</tr>`
 	})
 	html += '</table>'

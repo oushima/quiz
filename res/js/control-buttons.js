@@ -236,17 +236,14 @@ const quizResult = () => {
 
 	// Quiz end timestamp.
 	endTime = Date.now()
+	// Milliseconds converted to seconds.
 	totalTime = (endTime - startTime) / 1000
-	// If time is more than 60 seconds, make the word "minutes" and not "seconds".
-	let word = 'secondes'
-	if (totalTime > 60) {
-		totalTime /= totalTime
-		if (totalTime > 60 && totalTime < 1.99) word = 'minuut'
-		if (totalTime >= 2) word = 'minuten'
-		if (totalTime > 60) return alert('Je hebt te lang over deze quiz gedaan.')
-	}
-	
 
+	// Stop the quiz if longer than 60 minutes.
+	if (totalTime > 60) {
+		setTimeout(() => window.reload(), 3000)
+		return alert('Je hebt te lang over deze quiz gedaan.')
+	}
 
 	titleElement.innerText = `${emote}\nJe hebt ${Array.from(score.correct).length} van de ${questionnaire.length} vragen goed beantwoord in een tijdsduur van ${totalTime.toFixed(2)} ${word} ${firstNameElement.value} ${lastNameElement.value}.`
 	sendScore(studentNumber.value, Array.from(score.correct).length, totalTime)
