@@ -164,3 +164,8 @@ caption {
 	font-size: x-large;
 	font-weight: bold;
 }
+
+a {
+	text-align: center;
+	display: block;
+}

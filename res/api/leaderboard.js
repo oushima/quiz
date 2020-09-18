@@ -19,6 +19,8 @@ export const loadLeaderboard = () => {
   requestObject.onerror = () => alert('API verzoek mislukt.')
 }
 
+const container = document.getElementById('container')
+
 const createTable = students => {
   // Get the top scores.
   let topScores = students.sort((a, b) => {
@@ -40,6 +42,5 @@ const createTable = students => {
 			</tr>`
   })
   html += '</table>'
-  const container = document.getElementById('container')
   container.innerHTML += html
 }

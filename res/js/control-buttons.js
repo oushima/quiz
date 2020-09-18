@@ -3,6 +3,7 @@ import { questionnaire } from './questionnaire.js'
 import { requestStudent, setPlayerInformation } from '../api/find-student.js'
 import { sendScore } from '../api/send-score.js'
 import { loadLeaderboard } from '../api/leaderboard.js'
+import { twitterShareButton } from '../api/share-twitter.js'
 
 // Shuffle JSON questionnaire (modern Fisher-Yates shuffle algorithm).
 const shuffle = array => {
@@ -247,7 +248,8 @@ const quizResult = () => {
 
   titleElement.innerText = `${emote}\nJe hebt ${Array.from(score.correct).length} van de ${questionnaire.length} vragen goed beantwoord in een tijdsduur van ${totalTime} secondes ${firstNameElement.value} ${lastNameElement.value}.`
   sendScore(studentNumber.value, Array.from(score.correct).length, totalTime)
-  return loadLeaderboard()
+  loadLeaderboard()
+  twitterShareButton(Array.from(score.correct).length, questionnaire.length, totalTime)
 }
 
 const loadColors = () => {
