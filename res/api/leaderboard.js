@@ -31,7 +31,7 @@ const createTable = students => {
   topScores = topScores.slice(0, (10 - students.length))
 
   // Leaderboard.
-  let html = '<table id="leaderboard" class="leaderboard"> <tr> <th>Studentnummer</th> <th>Naam</th> <th>Score</th> <th>Datum</th> <th>Tijdstip</th> </tr><caption id="caption" class="caption">Leaderboard</caption>'
+  let html = '<div class="table-container"><table id="leaderboard" class="leaderboard"> <tr> <th>Studentnummer</th> <th>Naam</th> <th>Score</th> <th>Datum</th> <th>Tijdstip</th> </tr><caption id="caption" class="caption">Leaderboard</caption>'
   topScores.forEach(student => {
     html += `<tr>
 				<td>${student.player.number}</td>
@@ -41,6 +41,7 @@ const createTable = students => {
 				<td>${student.time} secondes</td>
 			</tr>`
   })
-  html += '</table>'
+  html += '</table></div>'
   container.innerHTML += html
+  return true
 }

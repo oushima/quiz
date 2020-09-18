@@ -46,7 +46,7 @@ var startTime, endTime, totalTime
 const correctAnswers = []
 let currentQuestionIndex = 0
 let unansweredQuestionIndex
-informationElement.innerText = `Deze quiz bestaat uit ${questionnaire.length} vragen. Je krijgt één punt voor elke correct beantwoorde vraag. Aan het einde van de quiz wordt je totale score getoond. De quiz duurt ongeveer 5 minuten en mag niet langer dan 1 uur zijn. Je moet minimaal een 6 scoren om een voldoende te halen voor deze JavaScript kennis quiz.`
+informationElement.innerHTML = `Deze quiz bestaat uit ${questionnaire.length} vragen. Je krijgt één punt voor elke correct beantwoorde vraag. Aan het einde van de quiz wordt je totale score getoond. De quiz duurt ongeveer 5 minuten en mag niet langer dan 1 uur zijn. Je moet minimaal een 6 scoren om een voldoende te halen voor deze JavaScript kennis quiz. Klik <a href="#" id="wireframes">hier</a> om de wireframes van deze quiz te bekijken.`
 
 // Event listeners.
 stopButton.addEventListener('click', () => location.reload())
@@ -248,6 +248,8 @@ const quizResult = () => {
 
   titleElement.innerText = `${emote}\nJe hebt ${Array.from(score.correct).length} van de ${questionnaire.length} vragen goed beantwoord in een tijdsduur van ${totalTime} secondes ${firstNameElement.value} ${lastNameElement.value}.`
   sendScore(studentNumber.value, Array.from(score.correct).length, totalTime)
+
+  // Load leaderboard and share button.
   loadLeaderboard()
   twitterShareButton(Array.from(score.correct).length, questionnaire.length, totalTime)
 }
@@ -290,4 +292,50 @@ const randomMessage = (messageArray) => {
     introductionElement.classList.add('hide')
     timer = null
   }, 2000)
+}
+
+document.getElementById('wireframes').addEventListener('click', () => loadWireframes())
+const loadWireframes = () => {
+  console.log('wireframes listener works.')
+  // Path naar wireframes.
+  const path = '/documentation/wireframes/'
+  const folderNames = {
+    desktop: {
+      name: 'desktop/tablet',
+      folderName: 'desktop',
+      items: 6,
+      extension: '.png'
+    },
+    mobile: {
+      name: 'mobile',
+      folderName: 'mobile',
+      items: 12,
+      extension: '.png'
+    }
+  }
+
+  // Loop door te folder items HTMLMenuElement.
+  //   let html = '<div class="wireframe-images">'
+  //   for (let i = 1; i <= objProperty.items; i++) {
+  //     console.log(`${path}${objProperty.folderName}/(${i})${objProperty.extension}`)
+  //     html += `<img src="${path}${objProperty.folderName}/(${i})${objProperty.extension}" alt="${objProperty.folderName}_wireframe_${i}">`
+  //     document.body.style.display = 'inline'
+  //   }
+  //   document.body.innerHTML = html += '</div>'
+
+  document.body.innerHTML = loadPath(path, folderNames.desktop)
+  document.body.innerHTML += loadPath(path, folderNames.mobile)
+}
+
+/*  */
+const loadPath = (path, objProperty) => {
+// Loop door te folder items HTMLMenuElement.
+document.body.style.display = 'inline'
+  let html = `<div class="wireframe-images"><h1>${objProperty.name}</h1>`
+  for (let i = 1; i <= objProperty.items; i++) {
+    // console.log(`${path}${objProperty.folderName}/(${i})${objProperty.extension}`)
+    html += `<a href="${path}${objProperty.folderName}/(${i})${objProperty.extension}"><img class="frames" src="${path}${objProperty.folderName}/(${i})${objProperty.extension}" alt="${objProperty.folderName}_wireframe_${i}"></a>`
+  }
+  html += '</div>'
+  return html
 }

@@ -1,3 +1,69 @@
+/* Mobile devices */
+@media only screen and (max-width: 600px) {
+	.btn-grid {
+		display: grid;
+		grid-template-columns: repeat(1, auto) !important;
+		grid-gap: 15px;
+		margin: 20px 0px;
+	}
+
+	.btn {
+		padding: 15px 10px !important;
+		max-width: 95vw !important;
+		font-size: x-small !important;
+	}
+
+	div#introduction, div.question, div#name-container {
+		color: hsl(var(--hue-purple-text), 60%, 60%);
+		font-weight: bold;
+		font-size: medium !important;
+		text-align: center;
+		margin: 2vh !important;
+	}
+
+	div.player {
+		margin: 2vh;
+		font-size: small !important;
+	}
+
+	.control-button {
+		font-weight: bold;
+		font-size: small !important;
+		padding: 10px 20px !important;
+	}
+
+	div.question {
+		font-size: medium !important;
+		margin: 4vh !important;
+	}
+
+	table.leaderboard {
+		border-collapse: collapse !important;
+		border-spacing: 0 !important;
+		width: 100% !important;
+		border: 1px solid #ddd !important;
+		border: solid 2px hsl(var(--hue-purple-text), 60%, 80%) !important;
+	}
+
+	th, td {
+		text-align: left !important;
+		padding: 20px !important;
+		border: solid 2px hsl(var(--hue-purple-text), 60%, 80%) !important;
+	}
+
+	.table-container {
+		overflow-x: auto !important;
+		max-width: 95vw;;
+		max-height: 95vh !important;
+		margin-bottom: 10vh;
+	}
+
+
+}
+
+
+
+/* Desktop and tablet */
 *, *::before, *::after {
 	box-sizing: border-box;
 	font-family: 'Noto Sans', sans-serif;
@@ -32,6 +98,9 @@ div#introduction, div.question, div#name-container {
 	font-weight: bold;
 	font-size: x-large;
 	text-align: center;
+}
+
+div#introduction {
 	margin: 2vh;
 }
 
@@ -81,7 +150,6 @@ body.wrong {
 	border-radius: 2px;
 	background-color: hsl(var(--hue), 55%, 85%);
 	color: hsl(var(--hue-neutral), 55%, 55%);
-	font-weight: bold;
 	padding: 50px 10px;
 	outline-color: hsl(var(--hue-outline), 60%, 65%);
 }
@@ -165,7 +233,22 @@ caption {
 	font-weight: bold;
 }
 
-a {
+a.twitter-share-link {
 	text-align: center;
 	display: block;
+	margin: 20px;
+}
+
+
+.wireframe-images {
+	text-align: center;
+	/* width: 95vw !important; */
+}
+
+.frames {
+	margin: 10px;
+}
+
+h1 {
+	color: hsl(var(--hue-purple-text), 60%, 60%);
 }
