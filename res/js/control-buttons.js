@@ -237,10 +237,13 @@ const quizResult = () => {
   totalTime = (endTime - startTime) / 1000
 
   // Stop the quiz if longer than 60 minutes.
-  if (totalTime > 60) {
+  if (totalTime > 3600) {
     setTimeout(() => window.reload(), 3000)
     return alert('Je hebt te lang over deze quiz gedaan.')
   }
+
+  // Rounds number up to the highest integer.
+  totalTime = Math.ceil(totalTime)
 
   titleElement.innerText = `${emote}\nJe hebt ${Array.from(score.correct).length} van de ${questionnaire.length} vragen goed beantwoord in een tijdsduur van ${totalTime} secondes ${firstNameElement.value} ${lastNameElement.value}.`
   sendScore(studentNumber.value, Array.from(score.correct).length, totalTime)
