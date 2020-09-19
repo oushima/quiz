@@ -298,7 +298,7 @@ document.getElementById('wireframes').addEventListener('click', () => loadWirefr
 const loadWireframes = () => {
   console.log('wireframes listener works.')
   // Path naar wireframes.
-  const path = '/documentation/wireframes/'
+  const path = './documentation/wireframes/'
   const folderNames = {
     desktop: {
       name: 'desktop/tablet',
