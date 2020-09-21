@@ -309,7 +309,7 @@ const loadWireframes = () => {
     mobile: {
       name: 'mobile',
       folderName: 'mobile',
-      items: 12,
+      items: 6,
       extension: '.png'
     }
   }
