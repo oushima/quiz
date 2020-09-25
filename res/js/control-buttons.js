@@ -46,7 +46,7 @@ var startTime, endTime, totalTime
 const correctAnswers = []
 let currentQuestionIndex = 0
 let unansweredQuestionIndex
-informationElement.innerHTML = `Deze quiz bestaat uit ${questionnaire.length} vragen. Je krijgt één punt voor elke correct beantwoorde vraag. Aan het einde van de quiz wordt je totale score getoond. De quiz duurt ongeveer 5 minuten en mag niet langer dan 1 uur zijn. Je moet minimaal een 6 scoren om een voldoende te halen voor deze JavaScript kennis quiz. Klik <a href="#" id="wireframes">hier</a> om de wireframes van deze quiz te bekijken.`
+informationElement.innerHTML = `Deze quiz bestaat uit ${questionnaire.length} vragen. Je krijgt één punt voor elke correct beantwoorde vraag. Aan het einde van de quiz wordt je totale score getoond. De quiz duurt ongeveer 5 minuten en mag niet langer dan 1 uur zijn. Je moet minimaal een 6 scoren om een voldoende te halen voor deze JavaScript kennis quiz. Klik <a href="#" id="wireframes">hier</a> om de wireframes van deze quiz te bekijken. Klik <a href="#" id="testscript">hier</a> om de testscript van deze quiz te bekijken.`
 
 // Event listeners.
 stopButton.addEventListener('click', () => location.reload())
@@ -296,7 +296,6 @@ const randomMessage = (messageArray) => {
 
 document.getElementById('wireframes').addEventListener('click', () => loadWireframes())
 const loadWireframes = () => {
-  console.log('wireframes listener works.')
   // Path naar wireframes.
   const path = './documentation/wireframes/'
   const folderNames = {
@@ -318,7 +317,6 @@ const loadWireframes = () => {
   document.body.innerHTML += loadPath(path, folderNames.mobile)
 }
 
-/*  */
 const loadPath = (path, objProperty) => {
 // Loop door te folder items HTMLMenuElement.
   document.body.style.display = 'inline'
@@ -330,3 +328,33 @@ const loadPath = (path, objProperty) => {
   html += '</div>'
   return html
 }
+
+// Show documentation.
+const testscript = [
+  { component: 'Start-pagina', purpose: 'Op de startpagina krijg je een korte introductie en documentatie te zien over de applicatie. Na het lezen van de introductie en documentatie moet het logisch en helder zijn wat de applicatie moet voorstellen voor de gebruiker wat hij/zij kan verwachten en hoe de quiz werkt en ontworpen is.' },
+  { component: 'Wireframes', purpose: 'De wireframes tonen het ontwerp van de applicatie voor dat deze ontworpen was. De wireframes geven de ontwikkelaar en de opdrachtgever een duidelijk beeld van wat er verwacht kan worden en hoe de applicatie er ongeveer uit zal komen te zien. Met de wireframes wordt ook duidelijk gemaakt of de ontwikkelaar en de opdrachtgever het zelfde beeld hebben zodat dit achteraf niet veranderd hoeft te worden.' },
+  { component: 'Foutmeldingen', purpose: 'Foutmeldingen krijg je niet standaard ergens op de website te zien. Deze kan je zelf dus niet opzoeken. Je krijgt een foutmelding te zien als er een fout optreed, door bijvoorbeeld een fout in de applicatie of als de gebruiker niet de juiste invoer doorgeeft bij bijvoorbeeld een tekstvak. Foutmeldingen worden standaard altijd in de browser getoond als een melding in het scherm in de form van een schermpje wat je daarna met een kruisje kan wegklikken, een \'browser alert box\'. Als er een foutmelding getoond wordt in het beeldscherm, weet de eindgebruiker na het lezen altijd waar het mis ging.' },
+  { component: 'Start-knop', purpose: 'Als de gebruiker een studentnummer heeft opgegeven, zal de quiz beginnen. De gebruiker kan dan de eerste vraag van de quiz verwachten in het beeldscherm.' },
+  { component: 'Quiz', purpose: 'Zodra de quiz begint wordt deze eerst geshuffeld zodat de vragen in een andere volgorde komen te staan. Een quiz vraag bestaat uit een vraag-titel en minimaal en maximaal 4 mogelijke antwoorden. De gebruiker kan maar één juist antwoord opgeven en kan een rood scherm verwachten als er een fout antwoord is opgegeven en een groen scherm verwachten als er een goed antwoord is opgegeven. De kleuren van de knoppen veranderen naar de kleur rood als dat het foute antwoord was, groen als dat he juiste antwoord was en het geselecteerde antwoord krijgt een blauw randje er omheen. Aan de onderkant van de pagina staat de naam van de gebruiker die de quiz maakt en welke vraag momenteel behandeld wordt. De gebruiker kan ook zien hoeveel vragen hij gedurend de quiz fout of juist heeft beantwoord.' },
+  { component: 'Stop-knop', purpose: 'De stop knop kan op elk moment gedurend de quiz gebruikt worden. De stop knop beëindigd de gehele quiz zonder het opslaan van het huidige resultaat. De stop knop kan gezien worden als een reset knop.' },
+  { component: 'Multimedia', purpose: 'De gebruiker kan gedurend de quiz multimedia verwachten. Multimedia in de vorm van: afbeeldingen, GIFs, video\'s en andere visuele beelden. De multimedia hoeft niet per se bij de quiz te horen. Kijk dus altijd naar de vraag en de mogelijke antwoorden en niet naar de visuele beelden bij het beslissen van een antwoord.' },
+  { component: 'Volgende-knop', purpose: 'De gebruiker kan na het klikken op een antwoord op volgende drukken, de gebruiker wordt dan naar de volgende vraag gebracht van de quiz.' },
+  { component: 'Vorige-knop', purpose: 'De gebruiker kan na het klikken op een antwoord op vorige drukken, de gebruiker wordt dan naar de vorige vraag gebracht van de quiz. Zodra de knop is gedrukt krijgt de gebruiker ook te zien welk antwoord hij had geselecteerd doormiddel van een blauw-randje en blauwe-tekst die iets groter is dan de andere vragen. De gebruiker krijgt ook te zien of het antwoord goed of fout was.' },
+  { component: 'Feedback', purpose: 'Zodra de gebruiker een vraag beantwoord, krijgt de gebruiker feedback. De feedback laat de gebruiker realiseren of een antwoord goed is ingevuld of niet. Als er een goed antwoord is opgegeven krijgt de gebruiker positieve feedback te zien en als de gebruiker een fout antwoord opgeeft krijgt de gebruiker motiverende tekst te zien zodat hij blijft doorzetten. Deze melding verwijnd automatisch. Hoe snel deze melding verdwijnt is afhankelijk van hoe snel de gebruiker de vragen beantwoord en toekomstige aanpassingen aan de applicatie.' },
+  { component: 'Eind-pagina', purpose: 'De gebruiker krijgt direct de uitslag van de quiz te zien en hoe lang er besteed is aan het geven van de antwoorden. Als de quiz te veel fout beantwoorde vragen heeft krijgt de gebruiker dat te zien. Als de gebruiker genoeg vragen goed heeft beantwoord krijgt heeft beantwoord wordt dat ook getoond op het scherm.' },
+  { component: 'Social-media', purpose: 'De gebruiker kan na het invullen de score delen via social-media. Zodra de gebruiker de score deelt wordt er automatisch tekst ingevuld waar in de score en tijdsduur wordt vermeld. Er wordt geen persoonlijke info ingevuld.' },
+  { component: 'Leaderboard', purpose: 'De gebruiker krijgt een leaderboard te zien waar de top-10 beste scores staan vermeld en de daarbij vermelde info zoals de datum, tijd, naam, studentnummer etc. Na het invullen van de quiz krijgt de gebruiker direct te zien of hij tussen die top-10 staat of dat hij er niet op staat. Dit kan gecontroleerd worden door naar het leaderboard te kijken. Alle scores op de leaderboard zijn real-time (live) data.' }
+]
+
+document.getElementById('testscript').addEventListener('click', () => {
+  let html = '<div class="table-container"><table id="testscript" class="testscript"> <tr> <th>Onderdeel</th> <th>Omschrijving</th> </tr><caption id="caption" class="caption">Testscript</caption>'
+  /* eslint-disable no-tabs */
+  testscript.forEach(component => {
+    html += `<tr>
+  			<td>${component.component}</td>
+  			<td>${component.purpose}</td> 
+		</tr>`
+  })
+  html += '</table></div>'
+  document.body.innerHTML = html
+})
